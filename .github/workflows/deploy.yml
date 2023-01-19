@@ -4,10 +4,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      uses: actions/checkout@v3
-      uses: actions/node-setup@v3
-      with:
-        node-version: 16
+      - name: add actions
+        uses: actions/checkout@v3
+        uses: actions/node-setup@v3
+        with:
+          node-version: 16
       - name: install dependencies
         run: npm ci
       - name: run lint

@@ -1,7 +1,5 @@
 name: issue ssss
-on:
-  issues:
-    types: [opened]
+on: issues
 jobs:
   printMessage:
     runs-on: ubuntu-latest

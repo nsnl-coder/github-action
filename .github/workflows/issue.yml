@@ -1,1 +1,8 @@
-
+name: issue notification
+on:
+  issues:
+    types: [opened]
+jobs:
+  printMessage:
+    steps:
+      - run: echo ${{github}}

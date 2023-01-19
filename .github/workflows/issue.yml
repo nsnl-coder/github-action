@@ -4,5 +4,6 @@ on:
     types: [opened]
 jobs:
   printMessage:
+    runs-on: ubuntu-latest
     steps:
       - run: echo ${{github}}

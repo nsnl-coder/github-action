@@ -4,9 +4,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: add actions
-        uses: actions/checkout@v3
-        uses: actions/node-setup@v3
+      - uses: actions/checkout@v3
+      - uses: actions/node-setup@v3
         with:
           node-version: 16
       - name: install dependencies
@@ -17,18 +16,15 @@ jobs:
         run: npm test
   deploy:
     needs: test
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     steps:
-      uses: actions/checkout@v3
-      uses: actions/node-setup@v3
-      with:
-        node-version: 16
+      - uses: actions/checkout@v3
+      - uses: actions/node-setup@v3
+        with:
+          node-version: 16
       - name: install dependencies
         run: npm ci
       - name: build
         run: npm run build
       - name: pushing to aws
         run: echo "pushing to aws"
-      
-        
-    

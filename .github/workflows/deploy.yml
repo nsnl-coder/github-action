@@ -1,0 +1,24 @@
+name: Deploy project
+on: push
+runs-on: ubuntu-latest
+jobs:
+  setupEnviroment:
+    uses: actions/checkout@v3
+    uses: actions/setup-node@v3
+    with:
+      node-version: 16
+    run: npm ci  
+  test:
+    needs: setupEnviroment
+    - name: lint
+      run: npm run lint
+    - name: test
+      run: npm run test
+  build:
+    needs: test
+    - name: build
+      run: npm run build
+  deploy:
+    needs: build
+    - name: Pushing to aws
+      run: echo "Pushed to aws"

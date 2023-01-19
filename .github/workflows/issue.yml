@@ -1,4 +1,4 @@
-name: issue notification
+name: issue ssss
 on:
   issues:
     types: [opened]
